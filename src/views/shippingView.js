@@ -23,10 +23,13 @@ export function render(){
 }
 
 export async function init(controller){
-    document.title = meta.title;
-    document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
 
     const form = document.querySelector('#shippingForm');
+      if (controller.shipping) {
+        Object.entries(controller.shipping).forEach(([k,v]) => {
+        const el = form.elements[k]; if (el) el.value = v;
+        });
+    }
     form.addEventListener("submit", e => {
         e.preventDefault();
         const formData = Object.fromEntries(new FormData(form));

@@ -1,10 +1,10 @@
 import { productModel } from "../models/productModel.js";
+import {loadState, saveState} from "../utils/storage.js";
 
 export const controller = {
    
         products: [],
         cart: [],
-        inCartMap: new Map(),
         shipping: null,
         payment: null,
         
@@ -12,28 +12,27 @@ export const controller = {
     async init(){
         
         console.log("AppController is installed");
-        try{
-            this.products = await productModel.getAll();
-            this.updateCartCount();
+         const saved = loadState();
+        if (saved) {
+        this.cart = saved.cart || [];
+        this.shipping = saved.shipping || null;
+        this.payment = saved.payment || null;
         }
-        catch (error){
-            console.error("Could not load products", error);
-        }
-     
-    },
- 
-
-    async getProducts(){
-        return await productModel.getAll();
+       this.products = await productModel.getAllProducts();
+       this.syncCartWithProducts();
     },
 
-    async getProduct(id){
-        return await productModel.getByID(id);
+    syncCartWithProducts(){
+        if(!this.cart.length) return;
+        this.cart = this.cart.map(item => {
+            const product = this.products.find(p => p.id === item.id) || {};
+            return {...product, quantity: item.quantity, onSale: product.onSale ?? item.onSale, discountedPrice: product.discountedPrice ?? item.discountedPrice}; 
+        });
+        saveState({cart: this.cart, shipping: this.shipping, payment: this.payment});
     },
-
 
     addToCart(product){
-           console.log(this.products)
+        console.log(this.products)
         const exisiting = this.cart.find(item => item.id === product.id);
         
         if(exisiting){
@@ -43,7 +42,6 @@ export const controller = {
         else{
             this.cart.push({...product, quantity: 1});
         }
-        this.inCartMap.set(product.id, true);
         const found = this.products.find(p => p.id === product.id);
         if(found) found.inCart= true;
         this.updateCartCount();
@@ -51,14 +49,14 @@ export const controller = {
     },
 
     removeFromCart(id){
-        
         this.cart = this.cart.filter(item => item.id !== id);
-        this.inCartMap.delete(id);
         this.updateCartCount();
     },
-    isInCart(id){
-        return this.inCartMap.has(id);
-    },
+
+    // isInCart(id){
+    //     console.log('denne blir kalt')
+    //     return this.inCartMap.has(id);
+    // },
 
     increaseQuantity(id){
 

@@ -1,5 +1,5 @@
 export function renderLoading() {
-  return `
+  return /*HTML*/`
     <div class="loading-screen">
       <div class="spinner"></div>
       <p>Loading Content...</p>

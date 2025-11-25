@@ -1,3 +1,4 @@
+import { formatPrice } from "../utils/format.js";
 
 export const meta = {
   title: "Game Hub | cart",
@@ -15,19 +16,10 @@ export function render() {
 }
 
 export async function init(controller) {
-    document.title = meta.title;
-    document
-    .querySelector('meta[name="description"]')
-    ?.setAttribute("content", meta.description);
-
   const itemsContainer = document.querySelector("#cart-items");
   const totalContainer = document.querySelector("#cart-total");
 
-  renderCart();
-
   function renderCart(){
-
-
  
       if (!controller.cart.length) {
           itemsContainer.innerHTML = "<p>Your cart is empty🛒</p>";
@@ -46,20 +38,18 @@ export async function init(controller) {
                       item.onSale
                         ? `
                           <p>
-                            <span class="old-price">${item.price} $</span>
-                            <span class="sale-price">${item.discountedPrice} $</span>
+                            <span class="old-price">${formatPrice(item.price)} </span>
+                            <span class="sale-price">${formatPrice(item.price)} </span>
                           </p>
                         `
-                        : `<p>${item.price} kr</p>`
+                        : `<p>${formatPrice(item.price)} kr</p>`
                     }
                     <div class="qty-control">
                       <button class="qty-btn-decrease" data-id="${item.id}">−</button>
                       <span>${item.quantity}</span>
                       <button class="qty-btn-increase" data-id="${item.id}">+</button>
                     </div>
-                    <p class="subtotal">Delsum: <strong>${(
-                      (item.onSale ? item.discountedPrice : item.price) * item.quantity
-                    ).toFixed(2)} $</strong></p>
+                    <p class="subtotal">sum: <strong>${formatPrice((item.onSale ? item.discountedPrice : item.price) * item.quantity)} </strong></p>
                     <button class="remove-btn" data-id="${item.id}">Remove</button>
                   </div>
                 </div>
@@ -68,10 +58,10 @@ export async function init(controller) {
           .join("");
 
        const hasDiscount = controller.cart.some(item => item.onSale);
-        totalContainer.innerHTML = `
+        totalContainer.innerHTML = /*HTML*/`
             <hr>
               <p class="total">
-                Totalt: <strong>${controller.getCartTotal()} $</strong>
+                Totalt: <strong>${formatPrice(controller.getCartTotal())} </strong>
                 ${hasDiscount ? '<span class="discount-info">(included discount 🎉)</span>' : ""}
               </p>
               <button class="checkout-btn">Go to Summary</button>
@@ -106,4 +96,5 @@ export async function init(controller) {
           window.location.hash ="#/checkout";
         });
   }
+  renderCart();
 }

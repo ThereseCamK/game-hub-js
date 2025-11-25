@@ -14,10 +14,6 @@ export function render(){
 }
 
 export async function init(controller){
-    document.title = meta.title;
-    document
-    .querySelector('meta[name="description"]')
-    ?.setAttribute("content", meta.description);
 
     const summaryContainer = document.getElementById("checkoutSummary");
 
@@ -28,7 +24,7 @@ export async function init(controller){
     }
     const productsHtml = controller.cart
         .map(
-            item => `
+            item => /*HTML*/`
                 <div class="checkout-item">
                     <div>
                         <strong>${item.title}</strong> Qty:(${item.quantity})
@@ -47,7 +43,7 @@ export async function init(controller){
 
         const total = controller.getCartTotal();
 
-       summaryContainer.innerHTML = `
+       summaryContainer.innerHTML = /*HTML*/`
             <div class="checkout-list">
             ${productsHtml}
             </div>
