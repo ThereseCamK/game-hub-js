@@ -1,5 +1,13 @@
 import { formatPrice } from "../utils/format.js";
 
+/**
+ * Rendre produktkort i en slider og initialiser autoplay + fade + dots
+ * @param {Array} products - produktobjekter
+ * @param {string} slidesId - id på slides container
+ * @param {string} dotsId - id på dots container
+ */
+ 
+
 export function escapeHtml(str='') {
   return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
 }
@@ -23,9 +31,6 @@ export function productCardHtml(p, cart = []) {
 }
 
 export function attachAddToCartDelegation( controller) {
-
-  // const container = document.querySelector(containerSelector);
-  // if (!container) return;
      const buttons = document.querySelectorAll(".cart-btn");
       buttons.forEach(btn =>
       btn.addEventListener("click", (e) => {
@@ -44,7 +49,6 @@ export function attachAddToCartDelegation( controller) {
 }
 
 export function renderProductList(products, targetSelector, controller) {
-console.log(products)
   const target = document.querySelector(targetSelector);
   
   if (!target) return;
@@ -79,3 +83,5 @@ export function priceHtml(product){
       `<p class="price">${formatPrice(product.price)}</p>`;
       return priceHtml;
 }
+
+

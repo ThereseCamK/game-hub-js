@@ -38,6 +38,9 @@ export async function init(controller, param){
             <img src="${product.image.url}" alt="${product.title}">
             <div class="details">
               <h2>${product.title}</h2>
+              <p>${product.ageRating}</p>
+              <p>${product.released}</p>
+              <p>${product.genre}</p>
               <p>${product.description}</p>
              ${priceHtml(product)}
               <div>

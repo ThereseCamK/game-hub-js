@@ -19,11 +19,11 @@ export async function initRouter(controller){
 
 async function route(controller) {
     const hash = window.location.hash.slice(2) || "home"; 
-    console.log(hash)
     const [routeName, param] = hash.split("/");
 
     document.querySelectorAll(".nav-links a").forEach(link => {
-        link.classList.toggle("active", link.dataset.link === routeName);
+        const page = link.dataset.page;
+        link.classList.toggle("active", page === routeName);
     });
 
     const loader = document.getElementById("app");

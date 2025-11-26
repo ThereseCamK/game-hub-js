@@ -1,0 +1,149 @@
+nav,
+#menu-checkbox{
+    display: none;
+}
+
+#menu-checkbox:checked ~ nav{
+    display: block;
+}
+
+
+header{
+    grid-area: header;
+    position: sticky;
+    background-image: var(--linear-gradient-to-right);
+    min-width: 100%;
+    height: 65px;
+    top: 0px;
+    z-index: 2;
+
+}
+.game-hub-logo-header{
+    height: 48px;
+    width: 79px;
+}
+.logo-position{
+    position: absolute;
+    left: 50%;
+    top: 10px;
+}
+nav {
+    position: absolute;
+    background-color: #0C098C;
+}
+
+.hamburger-icon span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 2px;
+    margin: 5px 10px;
+    background-color: #ffffff;
+}
+.hamburger-icon{
+    margin: 10px;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+    font-size: 1.5rem;
+    list-style: none;
+    min-width: 200px;
+    
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+}
+.nav-links li{
+ margin-bottom: 20%;
+}
+
+.nav-links a:hover {
+  color: #00ff37;
+}
+.nav-links a.active{
+  color: rgb(225, 0, 255);
+  text-decoration: underline;
+}
+.shopping-cart{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+}
+.shopping-cart:hover{
+    font-size: 1.5rem;
+    text-decoration: underline;
+    color: rgb(146, 18, 114);
+}
+
+.cart-wrapper{
+    position: absolute;
+    right: 5%;
+    top: 20px;
+}
+
+.cart-info{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background-color: green;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: small;
+    text-align: center;
+    color:#fff;
+}
+.empty{
+    background-color: red;
+}
+
+@media (min-width: 750px){
+     .logo-position{
+        left: 70%;
+        top: 15px;
+    }
+    header{
+        height: 70px;
+
+    }
+
+    .game-hub-logo-header{
+        height: 92px;
+        width: auto;
+        position: absolute;
+        left:90%;
+    }
+    nav,
+    #menu-checkbox{
+        display: none;
+    }
+
+
+    nav{
+        display: block;
+        position: static;
+        background-color: inherit;
+
+    }
+
+   
+    .hamburger-icon{
+        display:none;
+    }
+  
+}

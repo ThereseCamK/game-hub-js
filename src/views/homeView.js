@@ -1,4 +1,5 @@
-import { renderProductList, attachAddToCartDelegation, renderLoading } from "../components/uiHelpers.js";
+import { attachAddToCartDelegation, renderLoading} from "../components/uiHelpers.js";
+import { renderProductSlider} from "../components/slideSlider.js"
 
 export const meta = {
     title: "Game hub - home",
@@ -11,10 +12,16 @@ export function render(){
             <h2> Welcome to Game Hub </h2>
 
             <h3>Newest Games!</h3>
-            <div id="newest" class="product-grid"></div>
-            
+            <div class="slider-container" id="newest-slider">
+              <div class="slides" id="newest-slides"></div>
+              <div class="slider-dots" id="newest-dots"></div>
+            </div>
+
             <h3>Sale!</h3>
-            <div id="sale" class="product-grid"></div>
+            <div class="slider-container" id="sale-slider">
+              <div class="slides" id="sale-slides"></div>
+              <div class="slider-dots" id="sale-dots"></div>
+            </div>
 
         </section>
         `;
@@ -31,11 +38,9 @@ export async function init(controller) {
   if (!controller.products.length) await controller.init();
 
   const newest = [...controller.products].sort((a,b) => b.released - a.released).slice(0,5);
+   renderProductSlider(newest, "newest-slides", "newest-dots");
   const sale = controller.products.filter(p => p.onSale);
+  renderProductSlider(sale, "sale-slides", "sale-dots");
 
-  renderProductList(newest, newestTarget, controller);
-  renderProductList(sale, saleTarget, controller);
-
-  // attachAddToCartDelegation(newestTarget, controller);
   attachAddToCartDelegation( controller);
 }

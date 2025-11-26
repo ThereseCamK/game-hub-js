@@ -4,24 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A store where you can explore and buy online games">
+    <link rel="apple-touch-icon" sizes="180x180" href="./src/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/icons/favicon-16x16.png">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <title>Game hub - online game store </title>
 </head>
 <body>
+      <header class="shadow-style krub-style" >
+        <input type="checkbox" id="menu-checkbox"/>
+        <label for="menu-checkbox" class="hamburger-icon ">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav-links">
+                <li><a title="Go to homepage"  href="#/home" data-page="home">Home</a></li>
+                <li><a title="Go to GameShop page"  href="#/products" data-page="products">Games</a></li>
+            </ul>
+               
+        </nav >
 
-    <nav>
+            <a class="logo-position" href="./index.html">
+              
+                <img class="game-hub-logo-header"  src="./src/images/gameHub_Logo.png" alt="game hub logo"/>
+            </a> 
+
+            <div class="cart-wrapper">
+                <a href="#/cart" data-page="cart" class="shopping-cart" title="go to your cart">Cart 🛒 <span id="cart-count" class="cart-info empty">0</span></a>
+            </a>
+        </div>
+     
+    </header>
+
+    <!-- <nav>
         <h1>GAME HUB</h1>
             <ul class="nav-links">
                 <li><a href="#/home" data-page="home">Home</a></li>
                 <li><a href="#/products" data-page="products">Products</a></li>
                 <li><a href="#/cart" data-page="cart">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
         </ul>
-    </nav>
+    </nav> -->
 
      <main id="app">
   
     </main>
+
     
+    <footer class="kosugi-style footer-img">
+        <div class="footer-content">
+          
+
+                <section class="subscribe-news">
+                    <p title="sign up for newsletter to get hot news before it launches">Newsletter</p>
+                    <p>Want to know what news that's coming before everyone else? Sign up for newsletter to ger the hot news. </p>
+                </section>
+                
+                <section class="subscribe-input">
+                    <label for="email"></label>
+                    <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Email Address"
+                    title="Enter your email address here"
+                    class="sub-mail shadow-style radius-style">
+                    <button title="subscribe" class="sub-btn shadow-style radius-style buttons-style">Subscribe</button>
+                </section>
+             
+            
+
+            <section class="footer-some-wrapper">
+                <p>Follow us</p>
+                    <div class="some-icons-wrap">
+                       
+
+                        <img title="Go to GameHub on Facebook" class="some-icons-footer " src="./src/icons/Facebook.png" alt="Facebook icon">
+                        <img title="Go to GameHub on Instagram" class="some-icons-footer " src="./src/icons/Instagram.png" alt="Instagram icon">
+                        <img title="Go to GameHub on Youtube" class="some-icons-footer " src="./src/icons/Youtube.png" alt="Youtube icon">
+                    </div>   
+                    
+                    <div class="footer-contact">
+                        <p>Contact</p>
+                        <p >Phone: </p>
+                        <p class="contact-number" title="phonenumber">+1 (555) 987-6543</p>
+                        <p>Email: </p>
+                        <p class="contact-mail" title="emailaddress"> contact@gamehubstore.com</p>
+                    </div>
+            </section>
+
+
+            <img class="footer-logo game-hub-logo" src="./src/images/gameHub_Logo.png"> 
+
+            <section class="copyright">
+                 copyright © 2024-2025 <a title="link to the privacy policy">Privacy Policy</a> All Rights Served.
+            </section>
+
+        </div>
+            
+    </footer>
+
     <script type="module" src="./src/app.js"></script>
 </body>
 </html>

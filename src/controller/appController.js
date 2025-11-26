@@ -93,8 +93,14 @@ export const controller = {
     updateCartCount(){
         const cartTotal = document.querySelector("#cart-count");
         const count = this.cart.reduce((sum, item) => sum += item.quantity, 0);
-        cartTotal.textContent = count;
-       
+        
+        if(count > 0 ){
+            cartTotal.classList.remove("empty");
+        }
+        else {
+           cartTotal.classList.add("empty");
+        }
+       cartTotal.textContent = count;
     },
 
     saveShipping(data){
