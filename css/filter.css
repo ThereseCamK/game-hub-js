@@ -1,0 +1,19 @@
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+  align-items: center;
+}
+
+#searchInput, #sortSelect {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#sortSelect {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}

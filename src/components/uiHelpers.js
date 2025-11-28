@@ -1,13 +1,5 @@
 import { formatPrice } from "../utils/format.js";
 
-/**
- * Rendre produktkort i en slider og initialiser autoplay + fade + dots
- * @param {Array} products - produktobjekter
- * @param {string} slidesId - id på slides container
- * @param {string} dotsId - id på dots container
- */
- 
-
 export function escapeHtml(str='') {
   return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
 }
@@ -18,11 +10,11 @@ export function productCardHtml(p, cart = []) {
 
   return `
     <div class="product-card" data-id="${p.id}">
-      ${p.onSale ? `<span class="badge">SALE</span>` : ""}
+      ${p.onSale ? `<span class="badge">SALE</span>` : `<span class=" notsale"></span>`}
       <img src="${p.image.url || ''}" alt="${escapeHtml(p.title || '')}" />
       <h3>${escapeHtml(p.title || '')}</h3>
       ${priceHtml(p)}
-      <p class="genre">${escapeHtml(p.genre || p.category || '')}</p>
+      <p class="genre">Genre: ${escapeHtml(p.genre || p.category || '')}</p>
       <a href="#/product/${p.id}" class="details-btn">See details</a>
       ${ inCart ? `<button class="cart-btn in-cart" data-id="${p.id}" disabled>✔ In Cart allready</button>` : `<button class="cart-btn" data-id="${p.id}">🛒 Add To Cart </button>`}
     </div>
@@ -78,9 +70,9 @@ export function renderLoading(targetSelector){
 }
 
 export function priceHtml(product){
- const priceHtml = product.onSale ? `<p class="price"><span class="old-price">${formatPrice(product.price)}</span> 
-      <span class="sale-price">${formatPrice(product.discountedPrice)}</span></p>` : 
-      `<p class="price">${formatPrice(product.price)}</p>`;
+ const priceHtml = product.onSale ? `<p class="price"> Price: <span class="old-price"> ${formatPrice(product.price)}</span> 
+      <span class="sale-price"> ${formatPrice(product.discountedPrice)}</span></p>` : 
+      `<p class="price">Price: ${formatPrice(product.price)}</p>`;
       return priceHtml;
 }
 
