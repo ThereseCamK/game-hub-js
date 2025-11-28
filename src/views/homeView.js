@@ -8,16 +8,16 @@ export const meta = {
 
 export function render(){
      return /*HTML*/`
-        <section>
-            <h2> Welcome to Game Hub </h2>
+        <section class="home">
+            <h1> Welcome to Game Hub </h1>
 
-            <h3>Newest Games!</h3>
+            <h2 >Newest Games!</h2>
             <div class="slider-container" id="newest-slider">
               <div class="slides" id="newest-slides"></div>
               <div class="slider-dots" id="newest-dots"></div>
             </div>
 
-            <h3>Sale!</h3>
+            <h2>Sale!</h2>
             <div class="slider-container" id="sale-slider">
               <div class="slides" id="sale-slides"></div>
               <div class="slider-dots" id="sale-dots"></div>

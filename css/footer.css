@@ -44,13 +44,7 @@ footer{
     margin: 10px;
 }
 
-.info-wrap{
-    display: grid;
-   
-}
-
 .address-wrap{
-    
     grid-area: footer-address;
 }
 .address-wrap address p{
@@ -93,86 +87,71 @@ footer{
 }
 
 @media (min-width: 750px){
-     .footer-content{
-        font-size: var(--font-size-1rem);
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 0.3fr 0.5fr 0.1fr 0.2fr;
-        grid-template-areas: 'news some '
-                             'sub some '
-                             'logo logo'
-                            'copy copy';
-    }
-    .footer-img{
-      
-        background-image: url("../src/images/controller.jpg");
-        background-repeat: none;
-        background-size: cover;
-        background-position-y: center;
-    }
-    .some-icons-footer{
-        height: 35px;
-        width: 35px;
-    }
-    .footer-contact{
-        line-height: var(--line-spacing-tablet);
-        font-size: 0.8rem;
-    }
-    .sub-mail{
+    footer{
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr ;
+     grid-template-areas: 
+        'footer-header footer-header footer-header'
+        'footer-address footer-contact footer-some'
+        ;
 
-        background-size: 20px;
-        background-position-x: 10px;
-        font-size: var(--font-size-1rem);
-        height: 30px;
+}
+ 
+.logo-footer{
+    height: 100px;  
+    margin-left: 5%;
+}
+.footer-header p{
+    margin-top: 5%;
+    margin-left: 10%;
+    font-size: x-large;
+    
+}
+.address-wrap address p, .contact-wrap p{
+   top:0%;
+   font-size: medium;
+   
+   
+}
+.address-wrap, .contact-wrap{
+    margin-left: 20%;
+    margin-top: 5%;
+}
+.contact-wrap{
+    text-align: left;
+}
+.some-wrapper{
+    text-align: left;
+}
+.some-wrapper img{
+    margin-left: 1%;
+}
 
-    }
-    .sub-btn{
-        height: 36px;
-        width: 40%;
-    }
-    .copyright{
-        font-size: 0.6rem;
-        align-self: flex-end;
-        text-align: end;
-        padding: 3% 10%;
-
-    }
+ 
 
 
 }
 
-@media  (min-width: 1300px){
-   .maps-link{
- 
-
-        padding-left: 20%;
-    }
-    .footer-header p{
-        margin-top: 4%;
-       
-    }
-    .logo-footer{
-        height: 102px;
+@media (min-width: 1000px){
+   .logo-footer{
+    height: 150px;  
+    margin-left: 20%;
+}
+.footer-header p{
+    font-size: xx-large;
     
-    }
+}
+.address-wrap address p, .contact-wrap p{
+   font-size: larger;
+}
 
-    .contact-info-wrap{
-        grid-template-columns: 2fr 3fr 2fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: 
-            'footer-address footer-contact footer-some'
-        
-    }
-    .address-wrap address p{
-        
-        padding-left: 20%;
-    
-    }
-  
-    .some-wrap{
-        padding-top: 5%;
-    }
-    .some-wrap img{
-        width: 70px;
-        height: 70px;
-    }
+.some-wrapper img{
+    margin-left: 10%;
+} 
+}
+@media (min-width: 1600px){
+.some-wrapper img{
+    margin-left: 20%;
+} 
 }
