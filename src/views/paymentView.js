@@ -1,3 +1,4 @@
+import {renderProgress} from "../components/progressBar.js";
 export const meta ={
     title: "Game Hub | Payment",
     description: "Complete payment for your order",
@@ -7,6 +8,7 @@ export function render(){
     return /*HTML*/`
         <section class="payment-page">
             <h2>Payment</h2>
+            ${renderProgress("payment")}
                 <form id="paymentForm" class="checkout-form">
                     <label>Name on Card: <input type="text" name="cardName" required></label>
                     <label>Card Number: <input type="number" name="cardNumber"  required></label>

@@ -1,4 +1,5 @@
 import { formatPrice } from "../utils/format.js";
+import {renderProgress} from "../components/progressBar.js";
 
 export const meta = {
   title: "Game Hub | cart",
@@ -8,7 +9,8 @@ export const meta = {
 export function render() {
   return `
     <section id="cart">
-      <h2>Shopping cart</h2>
+    <h2>Shopping cart</h2>
+      ${renderProgress("cart")}
       <div id="cart-items">Loading cart...</div>
       <p id="cart-total"></p>
     </section>
@@ -33,24 +35,24 @@ export async function init(controller) {
                 <div class="cart-item ${item.onSale ? "on-sale" : ""}">
                   <img src="${item.image.url}" alt="${item.title}" />
                   <div class="info">
-                    <h3>${item.title}</h3>
+                    <h3 >${item.title}</h3>
                     ${
                       item.onSale
                         ? `
                           <p>
-                            <span class="old-price">${formatPrice(item.price)} </span>
-                            <span class="sale-price">${formatPrice(item.price)} </span>
+                            <span class="old-price" title="${item.price}">${formatPrice(item.price)} </span>
+                            <span class="sale-price" title="${item.price}">${formatPrice(item.price)} </span>
                           </p>
                         `
-                        : `<p>${formatPrice(item.price)} kr</p>`
+                        : `<p  title="${item.price}">${formatPrice(item.price)} kr</p>`
                     }
                     <div class="qty-control">
-                      <button class="qty-btn-decrease" data-id="${item.id}">−</button>
+                      <button class="qty-btn-decrease" data-id="${item.id}" title="decrease">−</button>
                       <span>${item.quantity}</span>
-                      <button class="qty-btn-increase" data-id="${item.id}">+</button>
+                      <button class="qty-btn-increase" data-id="${item.id}" title="increase">+</button>
                     </div>
                     <p class="subtotal">sum: <strong>${formatPrice((item.onSale ? item.discountedPrice : item.price) * item.quantity)} </strong></p>
-                    <button class="remove-btn" data-id="${item.id}">Remove</button>
+                    <button class="remove-btn" data-id="${item.id}" title="delete">&#128465</button>
                   </div>
                 </div>
               `

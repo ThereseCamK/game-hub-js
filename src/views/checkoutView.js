@@ -1,3 +1,4 @@
+import {renderProgress} from "../components/progressBar.js";
 export const meta = {
     title: "Game Hub | Check out",
     description: "Get a overview over your cart, before you move on to shipping",
@@ -7,6 +8,7 @@ export function render(){
     return /*HTML*/`
         <section> 
             <h2>Complete your purcase</h2> 
+             ${renderProgress("summery")}
             <div id="checkoutSummary"></div>
             <button id="goToShipping" class="confirm-btn">Go to shipping</button>
         </section>
