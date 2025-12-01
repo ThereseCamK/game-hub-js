@@ -44,7 +44,7 @@ export async function init(controller) {
                             <span class="sale-price" title="${item.price}">${formatPrice(item.price)} </span>
                           </p>
                         `
-                        : `<p  title="${item.price}">${formatPrice(item.price)} kr</p>`
+                        : `<p  title="${item.price}"  >${formatPrice(item.price)} kr</p>`
                     }
                     <div class="qty-control">
                       <button class="qty-btn-decrease" data-id="${item.id}" title="decrease">−</button>
