@@ -1,5 +1,7 @@
 import { productModel } from "../models/productModel.js";
-import {loadState, saveState} from "../utils/storage.js";
+import { loadState, saveState} from "../utils/storage.js";
+import { renderPrivacyModal, initPrivacyModal } from "../components/privacyConsent.js";
+
 
 export const controller = {
    
@@ -10,9 +12,10 @@ export const controller = {
         
    
     async init(){
-        
-        console.log("AppController is installed");
-         const saved = loadState();
+        document.body.insertAdjacentHTML("beforeend", renderPrivacyModal());
+        initPrivacyModal();
+       
+        const saved = loadState();
         if (saved) {
         this.cart = saved.cart || [];
         this.shipping = saved.shipping || null;
@@ -53,11 +56,7 @@ export const controller = {
         this.updateCartCount();
     },
 
-    // isInCart(id){
-    //     console.log('denne blir kalt')
-    //     return this.inCartMap.has(id);
-    // },
-
+   
     increaseQuantity(id){
 
         const exisiting = this.cart.find(item => item.id === id);

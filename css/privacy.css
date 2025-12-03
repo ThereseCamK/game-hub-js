@@ -1,0 +1,75 @@
+.privacy-view{
+    max-width: 80%;
+    margin-left: 10%
+}
+.privacy-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: #222;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+   
+}
+
+.privacy-modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.privacy-modal {
+    background: #ffffff;
+    padding: 30px;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.privacy-modal h2 {
+    margin-bottom: 15px;
+}
+
+.privacy-modal .btn-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.primary-btn {
+    background: #4CAF50;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    background: #ddd;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.policy-link {
+    color: #0077ff;
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}

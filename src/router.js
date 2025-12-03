@@ -9,6 +9,7 @@ const routes = {
     shipping: () => import("./views/shippingView.js"),
     payment: () => import("./views/paymentView.js"),
     confirmation: () => import("./views/confirmationView.js"),
+    privacy: () => import("./views/privacyView.js"),
 };
 
 export async function initRouter(controller){

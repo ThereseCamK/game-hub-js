@@ -134,24 +134,30 @@ footer{
 }
 
 @media (min-width: 1000px){
-   .logo-footer{
-    height: 150px;  
-    margin-left: 20%;
-}
-.footer-header p{
-    font-size: xx-large;
-    
-}
-.address-wrap address p, .contact-wrap p{
-   font-size: larger;
-}
+    .logo-footer{
+        height: 150px;  
+        margin-left: 20%;
+    }
+    .footer-header p{
+        font-size: xx-large;
+        
+    }
+    .address-wrap address p, .contact-wrap p{
+    font-size: larger;
+    }
 
-.some-wrapper img{
-    margin-left: 10%;
-} 
+    .some-wrapper img{
+        margin-left: 10%;
+    } 
 }
 @media (min-width: 1600px){
-.some-wrapper img{
-    margin-left: 20%;
-} 
+    .some-wrapper img{
+        margin-left: 20%;
+    } 
+}
+
+@media (max-width: 400px){
+      .some-wrapper img{
+        margin-left: 10%;
+    } 
 }
