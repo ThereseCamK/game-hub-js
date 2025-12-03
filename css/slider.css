@@ -17,6 +17,15 @@
   box-sizing: border-box;
 }
 
+button#slider-prev,
+button#slider-next {
+  cursor: pointer;
+  background-color: #535050;
+  color: white;
+  width: 30%;
+  font-size: large;
+  margin: 5%;
+}
 .slider-dots {
   text-align: center;
   margin-top: 10px;

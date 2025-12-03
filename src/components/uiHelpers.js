@@ -11,7 +11,8 @@ export function productCardHtml(p, cart = []) {
   return `
     <div class="product-card" data-id="${p.id}">
       ${p.onSale ? `<span class="badge">SALE</span>` : `<span class=" notsale"></span>`}
-      <img src="${p.image.url || ''}" alt="${escapeHtml(p.title || '')}" />
+      <a  href="#/product/${p.id}"><img  src="${p.image.url || ''}" alt="${escapeHtml(p.title || '')}" ></a>
+
       <h3>${escapeHtml(p.title || '')}</h3>
       ${priceHtml(p)}
       <p class="genre">Genre: ${escapeHtml(p.genre || p.category || '')}</p>
