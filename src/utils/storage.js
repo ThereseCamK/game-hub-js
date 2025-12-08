@@ -1,3 +1,4 @@
+
 export function saveState(state) {
   try {
     sessionStorage.setItem("appState", JSON.stringify(state));

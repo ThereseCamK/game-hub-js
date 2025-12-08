@@ -1,5 +1,6 @@
 import { setMeta } from "./metaManager.js";
 
+
 const routes = {
     home: () => import("./views/homeView.js"),
     products: () => import("./views/productsView.js"),
@@ -15,6 +16,7 @@ const routes = {
 export async function initRouter(controller){
     window.addEventListener("hashchange", () => route(controller));
     window.addEventListener("load", () => route(controller));
+  
    
 }
 

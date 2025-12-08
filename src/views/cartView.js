@@ -1,6 +1,7 @@
 import { formatPrice } from "../utils/format.js";
 import {renderProgress} from "../components/progressBar.js";
 
+
 export const meta = {
   title: "Game Hub | cart",
   description: "explore your games in your cart",

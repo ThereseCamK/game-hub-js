@@ -20,7 +20,7 @@
 .slider-prev,
 .slider-next {
   cursor: pointer;
-  background-color: #535050;
+  background-color: var(--dark-color);
   color: white;
   width: 30%;
   font-size: large;
@@ -46,7 +46,7 @@
 }
 
 .slider-dots span.active {
-  background: #020202;
+  background: var(--dark-color);
 }
 
 
