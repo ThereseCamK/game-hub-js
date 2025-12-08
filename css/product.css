@@ -84,9 +84,17 @@
     color: white;
 }
 .product-detail-card .confirm-btn{
-    margin-left: 0;
+    margin-left: 10%;
+    width: 200px;
+    text-decoration: none;
     margin-bottom: 10px;
-    background-color: #535050;
+    background-color: var(--dark-color);
+}
+
+.product-detail-card .cart-btn:hover,
+.product-detail-card .confirm-btn:hover {
+    background-color: white;
+    color:black;
 }
 
 @media (min-width: 600px) {
