@@ -19,14 +19,6 @@ header{
 }
 
 
-.logo-position img{
-    position: absolute;
-    left: 30%;
-    top: 10px;
-    height: 70px;
-    width: auto;
-   
-}
 
 nav {
     position: absolute;
@@ -74,6 +66,15 @@ nav {
   color: rgb(8, 8, 8);
   text-decoration: underline;
 }
+.logo-position img{
+    position: absolute;
+    left: 30%;
+    top: 10px;
+    height: 70px;
+    width: auto;
+   
+}
+
 .shopping-cart{
     font-size: 1.5rem;
     text-decoration: none;

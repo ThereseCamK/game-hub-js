@@ -27,6 +27,9 @@ async function route(controller) {
         link.classList.toggle("active", page === routeName);
     });
 
+    closeMobileMenu();
+    scrollToTop();
+
     const loader = document.getElementById("app");
     loader.innerHTML = `<div class="loading-spinner"></div>`;
 
@@ -49,4 +52,13 @@ async function route(controller) {
         loader.innerHTML = "<p>Error loading page</p>";
         document.title = "Error";
     }
+}
+
+function closeMobileMenu() {
+    const checkbox = document.getElementById("menu-checkbox");
+    if (checkbox) checkbox.checked = false;
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }

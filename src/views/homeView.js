@@ -12,21 +12,20 @@ export function render(){
             <h1> Welcome to Game Hub </h1>
 
             <h2 >Newest Games!</h2>
-            <div class="slider-container" id="newest-slider">
-              <button id="slider-prev">⟵</button>
-              <button id="slider-next">⟶</button>
+              <div class="slider-container" id="newest-slider">
+                <button class="slider-prev">⟵</button>
+                <button class="slider-next">⟶</button>
                 <div class="slides" id="newest-slides"></div>
-              
-              <div class="slider-dots" id="newest-dots"></div>
-            </div>
+                <div class="slider-dots" id="newest-dots"></div>
+              </div>
 
             <h2>Sale!</h2>
-            <div class="slider-container" id="sale-slider">
-            <button id="slider-prev">⟵</button>
-             <button id="slider-next">⟶</button>
-              <div class="slides" id="sale-slides"></div>
-              <div class="slider-dots" id="sale-dots"></div>
-            </div>
+              <div class="slider-container" id="sale-slider">
+                <button class="slider-prev">⟵</button>
+                <button class="slider-next">⟶</button>
+                <div class="slides" id="sale-slides"></div>
+                <div class="slider-dots" id="sale-dots"></div>
+              </div>
 
         </section>
         `;

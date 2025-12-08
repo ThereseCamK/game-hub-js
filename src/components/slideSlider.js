@@ -3,8 +3,9 @@ import { productCardHtml } from "./uiHelpers.js";
 export function renderProductSlider(products, slidesId, dotsId, prevId, nextId) {
   const container = document.getElementById(slidesId);
   const dotsContainer = document.getElementById(dotsId);
-  const prevBtn = document.getElementById(prevId);
-  const nextBtn = document.getElementById(nextId);
+  const sliderWrapper = container.closest(".slider-container");
+  const prevBtn = sliderWrapper.querySelector(`.${prevId}`);
+  const nextBtn = sliderWrapper.querySelector(`.${nextId}`);
 
   if (!container || !dotsContainer) return;
 
@@ -55,8 +56,8 @@ export function renderProductSlider(products, slidesId, dotsId, prevId, nextId) 
     interval = setInterval(nextSlide, 4000);
   }
 
-  if (nextBtn) nextBtn.addEventListener("click", () => { resetAutoplay(); nextSlide(); });
-  if (prevBtn) prevBtn.addEventListener("click", () => { resetAutoplay(); prevSlide(); });
+  if(nextBtn) nextBtn.addEventListener("click", () => { resetAutoplay(); nextSlide();});
+  if(prevBtn) prevBtn.addEventListener("click", () => { resetAutoplay(); prevSlide();});
 
   showSlide(0);
   startAutoplay();
