@@ -17,14 +17,18 @@
   box-sizing: border-box;
 }
 
-button#slider-prev,
-button#slider-next {
+.slider-prev,
+.slider-next {
   cursor: pointer;
   background-color: #535050;
   color: white;
   width: 30%;
   font-size: large;
   margin: 5%;
+}
+.slider-prev:hover, .slider-next:hover{
+  background-color: white;
+  color: black;
 }
 .slider-dots {
   text-align: center;
