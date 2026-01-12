@@ -1,5 +1,4 @@
-import { renderProductList, attachAddToCartDelegation, renderLoading } from "../components/uiHelpers.js";
-
+import { renderProductList, attachAddToCartDelegation, initImageLoading } from "../components/uiHelpers.js";
 
 export const meta = {
     title: "Game Hub | Products",
@@ -28,13 +27,15 @@ export function render(){
 }
 
 export async function init(controller) {
+
   const target = "#productList";
-  renderLoading(target);
+  
   if (!controller.products.length) await controller.init();
 
   let all = controller.products;
   let filtered = [...all];
   renderProductList(filtered, target, controller);
+  initImageLoading();
   attachAddToCartDelegation( controller);
 
   const search = document.getElementById("searchInput");
@@ -46,6 +47,7 @@ export async function init(controller) {
     const val = e.target.value.toLowerCase();
     filtered = all.filter(p => p.title.toLowerCase().includes(val));
     renderProductList(filtered, target, controller);
+      initImageLoading();
     attachAddToCartDelegation(controller);
   });
 
@@ -57,8 +59,8 @@ export async function init(controller) {
         filtered = all.filter(p => p.genre.toLowerCase() === value);
       }
     renderProductList(filtered, target, controller);
+      initImageLoading();
     attachAddToCartDelegation( controller);
   });
-
 
 }

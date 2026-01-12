@@ -11,6 +11,7 @@ const routes = {
     payment: () => import("./views/paymentView.js"),
     confirmation: () => import("./views/confirmationView.js"),
     privacy: () => import("./views/privacyView.js"),
+    
 };
 
 export async function initRouter(controller){
@@ -33,7 +34,13 @@ async function route(controller) {
     scrollToTop();
 
     const loader = document.getElementById("app");
-    loader.innerHTML = `<div class="loading-spinner"></div>`;
+    loader.innerHTML = `
+            <div class="loading-screen">
+            <div class="spinner"></div>
+            <p>Loading Content...</p>
+            </div>
+        `;
+        await new Promise(resolve => setTimeout(resolve, 500));
 
     const load = routes[routeName];
     if(!load){
@@ -44,7 +51,6 @@ async function route(controller) {
 
     try {
         const mod = await load();
-
         if(mod.meta) setMeta(mod.meta);
         loader.innerHTML = mod.render(param);
         if(mod.init) await mod.init(controller, param);

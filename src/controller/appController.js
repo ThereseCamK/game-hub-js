@@ -35,7 +35,7 @@ export const controller = {
     },
 
     addToCart(product){
-        console.log(this.products)
+      
         const exisiting = this.cart.find(item => item.id === product.id);
         
         if(exisiting){

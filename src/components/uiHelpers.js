@@ -12,13 +12,21 @@ export function productCardHtml(p, cart = []) {
   return `
     <div class="product-card" data-id="${p.id}">
       ${p.onSale ? `<span class="badge">SALE</span>` : `<span class=" notsale"></span>`}
-      <a  href="#/product/${p.id}"><img  src="${p.image.url || ''}" alt="${escapeHtml(p.title || '')}" ></a>
+        <div class="image-wrapper">
+          <div class="img-loader spinner"></div>
+            <a  href="#/product/${p.id}">
+              <img  
+              src="${p.image.url || ''}" 
+              alt="${escapeHtml(p.title || '')}" 
+               />
+            </a>
+        </div>
 
       <h3>${escapeHtml(p.title || '')}</h3>
-      ${priceHtml(p)}
-      <p class="genre">Genre: ${escapeHtml(p.genre || p.category || '')}</p>
-      <a href="#/product/${p.id}" class="details-btn">See details</a>
-      ${ inCart ? `<button class="cart-btn in-cart" data-id="${p.id}" disabled>✔ In Cart allready</button>` : `<button class="cart-btn" data-id="${p.id}">🛒 Add To Cart </button>`}
+        ${priceHtml(p)}
+        <p class="genre">Genre: ${escapeHtml(p.genre || p.category || '')}</p>
+        <a href="#/product/${p.id}" class="details-btn">See details</a>
+        ${ inCart ? `<button class="cart-btn in-cart" data-id="${p.id}" disabled>✔ In Cart allready</button>` : `<button class="cart-btn" data-id="${p.id}">🛒 Add To Cart </button>`}
     </div>
   `;
   
@@ -55,20 +63,32 @@ export function renderProductList(products, targetSelector, controller) {
   target.innerHTML = products.map(p => productCardHtml(p, controller.cart)).join("");
   }
 
-  
-
 }
 
+export function initImageLoading(){
+   const images = document.querySelectorAll(".image-wrapper img"); 
+   if(!images) return;
 
+   images.forEach(img => {
+    if(img.complete){
+      showImage(img);
+    }
+    else{
+      img.addEventListener("load", () => showImage(img));
+      img.addEventListener("error", () => img.remove());
+    }
+   })
+}
 
-export function renderLoading(targetSelector){
-   const el = document.querySelector(targetSelector); 
-   if(!el) return;
+function showImage(img) {
+   setTimeout(() => {
+      img.classList.add("loaded");
 
-   el.innerHTML = `
-   <div class="loading-spinner"></div>
-    <p>Loading...</p>
-   `;
+      const wrapper = img.closest(".image-wrapper");
+      const loader = wrapper?.querySelector(".img-loader");
+
+      if (loader) loader.remove();
+    }, 1000);
 }
 
 export function priceHtml(product){

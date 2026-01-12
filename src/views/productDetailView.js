@@ -1,5 +1,5 @@
 import { 
-  renderLoading, attachAddToCartDelegation, priceHtml } from "../components/uiHelpers.js";
+  initImageLoading, attachAddToCartDelegation, priceHtml } from "../components/uiHelpers.js";
  
 
 export const meta = {
@@ -12,11 +12,9 @@ export function render() {
 }
 
 export async function init(controller, param){
-  console.log(param)
-
     const container = document.querySelector("#product-detail");
 
-    renderLoading("#product-detail");
+    initImageLoading();
       
       let product = controller.products.find(p => p.id === param);
       const inCart = controller.cart.some(item => item.id === product.id);   

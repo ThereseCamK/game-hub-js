@@ -1,4 +1,4 @@
-import { attachAddToCartDelegation, renderLoading} from "../components/uiHelpers.js";
+import { attachAddToCartDelegation, initImageLoading} from "../components/uiHelpers.js";
 import { renderProductSlider} from "../components/slideSlider.js"
 
 export const meta = {
@@ -7,6 +7,7 @@ export const meta = {
 };
 
 export function render(){
+  
      return /*HTML*/`
         <section class="home">
             <h1> Welcome to Game Hub </h1>
@@ -31,13 +32,10 @@ export function render(){
         `;
 }
 
-
 export async function init(controller) {
+
   const newestTarget = "#newest"; 
   const saleTarget = "#sale";
-  renderLoading(newestTarget); 
-  renderLoading(saleTarget);
-
 
   if (!controller.products.length) await controller.init();
 
@@ -45,6 +43,6 @@ export async function init(controller) {
    renderProductSlider(newest, "newest-slides", "newest-dots", "slider-prev", "slider-next");
   const sale = controller.products.filter(p => p.onSale);
   renderProductSlider(sale, "sale-slides", "sale-dots", "slider-prev", "slider-next");
-
+  initImageLoading();
   attachAddToCartDelegation( controller);
 }
