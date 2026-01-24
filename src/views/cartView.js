@@ -42,7 +42,7 @@ export async function init(controller) {
                         ? `
                           <p>
                             <span class="old-price" title="${item.price}">${formatPrice(item.price)} </span>
-                            <span class="sale-price" title="${item.price}">${formatPrice(item.price)} </span>
+                            <span class="sale-price" title="${item.price}">${formatPrice(item.discountedPrice)} </span>
                           </p>
                         `
                         : `<p  title="${item.price}"  >${formatPrice(item.price)} kr</p>`
