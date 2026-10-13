@@ -34,9 +34,6 @@ export function render(){
 
 export async function init(controller) {
 
-  const newestTarget = "#newest"; 
-  const saleTarget = "#sale";
-
   if (!controller.products.length) await controller.init();
 
   const newest = [...controller.products].sort((a,b) => b.released - a.released).slice(0,5);

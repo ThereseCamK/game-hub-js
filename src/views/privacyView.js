@@ -4,16 +4,16 @@ export const meta = {
 }
 
 export function render(){
-    return `
+    return /*HTML */`
         <section class="privacy-view">
         <h1> Game Hub – Privacy Policy</h1>
-        <h2>Last updated: 01.12.2025</h2>
-        <p>At Game Hub, we are committed to protecting your personal data and respecting your privacy. 
-        This Privacy Policy explains how we collect, use, store, 
-        and safeguard your information when you interact with our website, purchase products, 
-        or use any of our services.
-        Game Hub complies with the General Data Protection Regulation (GDPR)
-        and all applicable data protection laws.</p>
+            <h2>Last updated: 01.12.2025</h2>
+            <p>At Game Hub, we are committed to protecting your personal data and respecting your privacy. 
+            This Privacy Policy explains how we collect, use, store, 
+            and safeguard your information when you interact with our website, purchase products, 
+            or use any of our services.
+            Game Hub complies with the General Data Protection Regulation (GDPR)
+            and all applicable data protection laws.</p>
 
         <p>1. Information We Collect
             We may collect the following types of information:

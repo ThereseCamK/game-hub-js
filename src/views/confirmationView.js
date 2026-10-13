@@ -21,7 +21,7 @@ export async function init(controller){
 
     const summary = document.querySelector("#orderSummary");
     const {cart, shipping} = controller;
-   
+    controller.checkIfEmpty();
     if(cart.length >= 1){
     const items = cart.map(i=> `
         <li>${i.title} (${i.quantity})</li>`).join("");

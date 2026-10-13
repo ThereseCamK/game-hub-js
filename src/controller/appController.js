@@ -126,5 +126,13 @@ export const controller = {
         this.updateCartCount();
     },
 
+    checkIfEmpty(){
+        
+    if(this.cart.length === 0){
+        window.location.hash ="/cart"
+        return;
+        }
+    }
+
    
 }

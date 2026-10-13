@@ -13,6 +13,3 @@ export const orderModel = {
     }
 };
 
-export const userModel = {
-    
-}

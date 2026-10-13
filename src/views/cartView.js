@@ -10,8 +10,8 @@ export const meta = {
 export function render() {
   return `
     <section id="cart">
-    <h2>Shopping cart</h2>
-      ${renderProgress("cart")}
+    <h1>Shopping cart</h1>
+      <div id="progressbar">${renderProgress("cart")}</div>
       <div id="cart-items">Loading cart...</div>
       <p id="cart-total"></p>
     </section>
@@ -21,12 +21,21 @@ export function render() {
 export async function init(controller) {
   const itemsContainer = document.querySelector("#cart-items");
   const totalContainer = document.querySelector("#cart-total");
+  const progressContainer = document.querySelector("#progressbar");
 
   function renderCart(){
  
       if (!controller.cart.length) {
-          itemsContainer.innerHTML = "<p>Your cart is empty🛒</p>";
+          itemsContainer.innerHTML = `<h2>Your cart is empty🛒</h2>
+                                      <p>Please feel free to explore our games</p>
+                                      <button class="explore"> Explore </button>
+                                      `;
           totalContainer.textContent = "";
+          progressContainer.innerHTML = '';
+        document.querySelector(".explore").addEventListener("click", () => {
+          window.location.hash = "#/products";
+        })
+
           return;
       }
 
@@ -70,7 +79,7 @@ export async function init(controller) {
               <button class="checkout-btn">Go to Summary</button>
             `;
 
-
+   
         document.querySelectorAll(".remove-btn").forEach(btn => {
           btn.addEventListener("click", e => {
               const id = e.target.dataset.id;
@@ -98,6 +107,8 @@ export async function init(controller) {
         document.querySelector(".checkout-btn").addEventListener("click", () =>{
           window.location.hash ="#/checkout";
         });
+
+      
   }
   renderCart();
 }

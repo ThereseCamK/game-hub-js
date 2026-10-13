@@ -41,7 +41,8 @@ export function render(){
 }
 
 export async function init(controller){
-
+    
+   controller.checkIfEmpty();
     const form = document.querySelector('#shippingForm');
       if (controller.shipping) {
         Object.entries(controller.shipping).forEach(([k,v]) => {

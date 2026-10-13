@@ -21,6 +21,7 @@ export function render(){
 }
 
 export async function init(controller){
+    controller.checkIfEmpty();
     document.title = meta.title;
     document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
 

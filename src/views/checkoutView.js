@@ -19,11 +19,7 @@ export async function init(controller){
 
     const summaryContainer = document.getElementById("checkoutSummary");
 
-    if(controller.cart.length === 0){
-        summaryContainer.innerHTML = "<p>Your cart is empty</p>";
-        document.getElementById("confirmPhurchase").style.display = "none";
-        return;
-    }
+    controller.checkIfEmpty();
     const productsHtml = controller.cart
         .map(
             item => /*HTML*/`
